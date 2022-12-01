@@ -16,11 +16,7 @@ class Role(str, Enum):
 
 
 class User(BaseModel):
-    # / Optional means it isn't necessary to to fill it
-    # ? we use UUID as the datatype for ID as
-    # ? UUID is an encrypted key this provide
-    # ? unique key for all the records
-    id: Optional[UUID] = uuid4()  # uuid 4 generate random UUID
+    id: Optional[UUID] = uuid4()
     first_name: str
     last_name: str
     middle_name: Optional[str]
