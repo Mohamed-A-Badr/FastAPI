@@ -40,7 +40,7 @@ async def fetch_users():
 
     we send an entity called user which will represent the 
     data coming from the client in the from of User models we 
-    create 
+    create and taken from the user's requset body
 
     #? we use the same path because one is for GET 
     #? and the other for the POST so there is no conflict 
