@@ -1,5 +1,5 @@
 from typing import List
-from uuid import uuid4
+from uuid import UUID, uuid4
 from fastapi import FastAPI
 from models import Gender, Role, User
 
@@ -15,7 +15,9 @@ db: List[User] = [
         roles=[Role.student]
     ),
     User(
-        id=uuid4(),
+        # id=uuid4(),
+        # ? this way make the id fixed
+        id=UUID("41c95313-cda5-4ee3-b09d-88e74aa23173"),
         first_name="habiba",
         last_name="Mohamed",
         gender=Gender.female,
@@ -27,3 +29,8 @@ db: List[User] = [
 @app.get("/")
 def root():
     return {"Hello": "Mohamed"}
+
+
+@app.get("/api/v1/users")
+async def fetch_users():
+    return db
